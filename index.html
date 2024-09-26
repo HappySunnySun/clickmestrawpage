@@ -8,13 +8,11 @@
 </head>
 <body>
     <div id="video-container">
-        <video id="local-video" controls autoplay muted>
+        <video id="local-video" autoplay>
             <source src="video.mp4" type="video/mp4">
             Votre navigateur ne supporte pas la lecture des vidéos HTML5.
         </video>
     </div>
-
-    <button id="fullscreen-button">Lancer la vidéo en plein écran</button>
 
     <script>
         document.getElementById('fullscreen-button').addEventListener('click', function() {
