@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vidéo Plein Écran</title>
-    <!-- Lien vers la feuille de style CSS -->
+    <title>Vidéo Locale Plein Écran</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="video-container">
-        <video id="video" autoplay muted playsinline>
+        <video id="local-video" controls autoplay muted>
             <source src="video.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas la balise vidéo.
+            Votre navigateur ne supporte pas la lecture des vidéos HTML5.
         </video>
     </div>
 
-    <script>
-        window.onload = function() {
-            const video = document.getElementById('video');
-            // Démarrer la vidéo en plein écran
-            video.requestFullscreen().catch(err => {
-                console.error(`Erreur lors de la tentative de plein écran: ${err}`);
-            });
+    <button id="fullscreen-button">Lancer la vidéo en plein écran</button>
 
-            // Lancer la vidéo
-            video.play().catch(err => {
-                console.error(`Erreur lors de la lecture de la vidéo: ${err}`);
-            });
-        };
+    <script>
+        document.getElementById('fullscreen-button').addEventListener('click', function() {
+            var video = document.getElementById('local-video');
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { // Firefox
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { // IE/Edge
+                video.msRequestFullscreen();
+            }
+        });
     </script>
 </body>
 </html>
