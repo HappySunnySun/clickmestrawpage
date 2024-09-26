@@ -13,20 +13,5 @@
             Votre navigateur ne supporte pas la lecture des vidéos HTML5.
         </video>
     </div>
-
-    <script>
-        document.getElementById('fullscreen-button').addEventListener('click', function() {
-            var video = document.getElementById('local-video');
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.mozRequestFullScreen) { // Firefox
-                video.mozRequestFullScreen();
-            } else if (video.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) { // IE/Edge
-                video.msRequestFullscreen();
-            }
-        });
-    </script>
 </body>
 </html>
