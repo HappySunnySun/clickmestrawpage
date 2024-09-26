@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vidéo Locale Plein Écran</title>
+    <title>Vidéo Locale avec Son</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="video-container">
-        <video id="local-video" autoplay>
+        <video id="local-video" controls autoplay>
             <source src="video.mp4" type="video/mp4">
             Votre navigateur ne supporte pas la lecture des vidéos HTML5.
         </video>
     </div>
+
+    <script>
+        // S'assurer que la vidéo est lue avec le son activé
+        var video = document.getElementById('local-video');
+        video.volume = 1;  // Volume maximum
+        video.play();      // Lire automatiquement
+    </script>
 </body>
 </html>
